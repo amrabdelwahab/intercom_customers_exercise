@@ -1,8 +1,8 @@
 require './lib/services/file_reader'
 module Repositories
   class Customer
-    def initialize(source = './data/customers.json')
-      @source = source
+    def initialize(data_source)
+      @data_source = data_source
     end
 
     def all
@@ -14,7 +14,7 @@ module Repositories
     private
 
     def raw_customers_data
-      @raw_customers_data ||= Services::FileReader.new(@source).json_array
+      @raw_customers_data ||= @data_source.json_data
     end
 
     def map_customer(attrs)

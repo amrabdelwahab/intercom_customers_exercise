@@ -2,11 +2,12 @@ require 'spec_helper'
 require './lib/repositories/customer'
 
 describe Repositories::Customer do
-  subject { described_class.new }
+  subject { described_class.new(data_source) }
   let(:json_data) { [] }
+  let(:data_source) { double('data_source') }
   before do
-    allow_any_instance_of(Services::FileReader)
-      .to receive(:json_array)
+    allow(data_source)
+      .to receive(:json_data)
       .and_return(json_data)
   end
 
