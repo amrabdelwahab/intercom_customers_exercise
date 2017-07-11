@@ -6,14 +6,14 @@ module Services
       @file_path = file_path
     end
 
-    def content_array
+    def lines
       guarded_file_operation do
-        @content_array ||= File.readlines(@file_path)
+        @lines ||= File.readlines(@file_path)
       end
     end
 
     def json_array
-      @json_array ||= content_array.map do |line|
+      @json_array ||= lines.map do |line|
         guarded_json_operation do
           JSON.parse line
         end

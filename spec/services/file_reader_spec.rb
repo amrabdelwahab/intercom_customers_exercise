@@ -5,14 +5,14 @@ describe Services::FileReader do
   let(:file_path) { './spec/fixtures/file.json' }
   subject { described_class.new(file_path) }
 
-  describe '#content_array' do
+  describe '#lines' do
     context 'when the file exists' do
       it 'should return an array' do
-        expect(subject.content_array).to be_a Array
+        expect(subject.lines).to be_a Array
       end
 
       it 'should return an array with count of 2' do
-        expect(subject.content_array.count).to eq 3
+        expect(subject.lines.count).to eq 3
       end
     end
 
@@ -20,7 +20,7 @@ describe Services::FileReader do
       let(:file_path) { 'wrong file name' }
 
       it 'should print an error message to stdout' do
-        expect { subject.content_array }
+        expect { subject.lines }
           .to output(
             "Error while reading file: 'wrong file name',"\
             " Make sure the file exists\n"
@@ -29,7 +29,7 @@ describe Services::FileReader do
       end
 
       it 'should return an empty array' do
-        expect(subject.content_array).to match_array []
+        expect(subject.lines).to match_array []
       end
     end
   end
