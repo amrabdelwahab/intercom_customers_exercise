@@ -38,6 +38,10 @@ describe Services::FileReader do
       it 'should return an array' do
         expect(subject.json_array).to be_a Array
       end
+
+      it 'should return an array with the correct count' do
+        expect(subject.json_array.count).to eq 3
+      end
     end
   end
 end
