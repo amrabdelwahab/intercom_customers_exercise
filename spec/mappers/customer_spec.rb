@@ -3,6 +3,12 @@ require './lib/mappers/customer'
 
 describe Mappers::Customer do
   let(:attrs) do
+    {
+      'user_id' => 1,
+      'name' => 'Christina McArdle',
+      'longitude' => '-6.043701',
+      'latitude' => '52.986375'
+    }
   end
   subject { described_class.new(attrs) }
 

@@ -20,12 +20,7 @@ module Repositories
     end
 
     def map_customer(attrs)
-      Models::Customer.new(permitted_params(attrs))
-    end
-
-    def permitted_params(attrs)
-      attrs
-        .select { |key, _| WHITE_LISTED_PARAMS.include? key }
+      Mappers::Customer.new(attrs).customer
     end
   end
 end
