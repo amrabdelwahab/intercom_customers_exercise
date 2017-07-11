@@ -43,5 +43,16 @@ describe Services::FileReader do
         expect(subject.json_array.count).to eq 3
       end
     end
+
+    context 'when the file has invalid json data' do
+      let(:file_path) { './spec/fixtures/invalid_file.json' }
+      it 'should return an array' do
+        expect(subject.json_array).to be_a Array
+      end
+
+      it 'should exclude the invalid records' do
+        expect(subject.json_array.count).to eq 1
+      end
+    end
   end
 end
