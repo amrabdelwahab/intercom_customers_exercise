@@ -32,4 +32,12 @@ describe Services::FileReader do
       end
     end
   end
+
+  describe '#json_array' do
+    context 'when the file has valid json data' do
+      it 'should return an array' do
+        expect(subject.json_array).to be_a Array
+      end
+    end
+  end
 end
