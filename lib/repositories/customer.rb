@@ -16,7 +16,7 @@ module Repositories
     private
 
     def raw_customers_data
-      Services::FileReader.new(@source).json_array
+      @raw_customers_data ||= Services::FileReader.new(@source).json_array
     end
 
     def map_customer(attrs)
