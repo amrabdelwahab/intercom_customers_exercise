@@ -13,9 +13,13 @@ module Services
     end
 
     def json_array
-      content_array.map do |line|
-        JSON.parse line
-      end
+      @json_array ||= content_array.map do |line|
+        begin
+          JSON.parse line
+        rescue JSON::ParserError
+          next
+        end
+      end.compact
     end
 
     private
