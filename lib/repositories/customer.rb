@@ -1,7 +1,7 @@
 require './lib/services/file_reader'
 module Repositories
   class Customer
-    def initialize(data_source)
+    def initialize(data_source = DataSources::File.new)
       @data_source = data_source
     end
 
