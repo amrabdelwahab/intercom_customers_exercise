@@ -54,6 +54,15 @@ describe Services::FileReader do
       it 'should exclude the invalid records' do
         expect(subject.json_array.count).to eq 1
       end
+
+      it 'should print an error message to stdout' do
+        expect { subject.json_array }
+          .to output(
+            "Invalid record was excluded\n"\
+            "Invalid record was excluded\n"
+          )
+          .to_stdout
+      end
     end
   end
 end
