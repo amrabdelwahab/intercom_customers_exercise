@@ -39,7 +39,7 @@ describe Models::Customer do
 
     context 'when you have an array of customers' do
       let(:customer1) { described_class.new(user_id: 1) }
-      let(:customer2) { described_class.new(user_id: 10) }     
+      let(:customer2) { described_class.new(user_id: 10) }
       let(:customer3) { described_class.new(user_id: 20) }
       let(:customers) { [customer2, customer1, customer3] }
 
