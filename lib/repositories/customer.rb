@@ -1,8 +1,6 @@
 require './lib/services/file_reader'
 module Repositories
   class Customer
-    WHITE_LISTED_PARAMS = %w[user_id name longitude latitude].freeze
-
     def initialize(source = './data/customers.json')
       @source = source
     end
