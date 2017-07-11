@@ -33,6 +33,7 @@ module Services
     def guarded_json_operation
       yield
     rescue JSON::ParserError
+      puts 'Invalid record was excluded'
       nil
     end
   end
