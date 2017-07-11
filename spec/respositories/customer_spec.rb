@@ -7,7 +7,7 @@ describe Repositories::Customer do
   let(:data_source) { double('data_source') }
   before do
     allow(data_source)
-      .to receive(:json_data)
+      .to receive(:json_records)
       .and_return(json_data)
   end
 
