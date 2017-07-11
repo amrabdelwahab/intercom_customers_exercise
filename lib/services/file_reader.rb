@@ -1,17 +1,21 @@
+require 'json'
+
 module Services
   class FileReader
     def initialize(file_path)
       @file_path = file_path
     end
 
-    def read_content
+    def content_array
       guarded_file_operation do
-        File.readlines(@file_path)
+        @content_array ||= File.readlines(@file_path)
       end
     end
 
     def json_array
-      []
+      content_array.map do |line|
+        JSON.parse line
+      end
     end
 
     private
