@@ -9,6 +9,10 @@ describe Services::FileReader do
       it 'should return an array' do
         expect(subject.read_content).to be_a Array
       end
+
+      it 'should return an array with count of 2' do
+        expect(subject.read_content.count).to eq 3
+      end
     end
 
     context 'when the file does not exist' do
