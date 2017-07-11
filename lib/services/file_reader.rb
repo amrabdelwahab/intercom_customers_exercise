@@ -10,6 +10,10 @@ module Services
       end
     end
 
+    def json_array
+      []
+    end
+
     private
 
     def guarded_file_operation
