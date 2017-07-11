@@ -14,10 +14,8 @@ module Services
 
     def json_array
       @json_array ||= content_array.map do |line|
-        begin
+        guarded_json_operation do
           JSON.parse line
-        rescue JSON::ParserError
-          next
         end
       end.compact
     end
@@ -30,6 +28,12 @@ module Services
       puts "Error while reading file: '#{@file_path}',"\
            ' Make sure the file exists'
       []
+    end
+
+    def guarded_json_operation
+      yield
+    rescue JSON::ParserError
+      nil
     end
   end
 end
