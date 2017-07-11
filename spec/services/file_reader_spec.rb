@@ -13,13 +13,18 @@ describe Services::FileReader do
 
     context 'when the file does not exist' do
       let(:file_path) { 'wrong file name' }
-      it 'should return an array' do
+
+      it 'should print an error message to stdout' do
         expect { subject.read_content }
           .to output(
             "Error while reading file: 'wrong file name',"\
             " Make sure the file exists\n"
           )
           .to_stdout
+      end
+
+      it 'should return an empty array' do
+        expect(subject.read_content).to match_array []
       end
     end
   end
