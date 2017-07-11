@@ -1,3 +1,4 @@
+require './lib/services/file_reader'
 module DataSources
   class File
     def initialize(reader = Services::FileReader.new('./data/customers.json'))

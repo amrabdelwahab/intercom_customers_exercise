@@ -1,4 +1,5 @@
-require './lib/services/file_reader'
+require './lib/data_sources/file'
+require './lib/mappers/customer'
 module Repositories
   class Customer
     def initialize(data_source = DataSources::File.new)
@@ -14,7 +15,7 @@ module Repositories
     private
 
     def raw_customers_data
-      @raw_customers_data ||= @data_source.json_data
+      @raw_customers_data ||= @data_source.json_records
     end
 
     def map_customer(attrs)

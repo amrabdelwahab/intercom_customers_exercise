@@ -1,3 +1,5 @@
+require './lib/models/customer'
+require './lib/models/location'
 module Mappers
   class Customer
     attr_reader :source_hash
