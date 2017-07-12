@@ -1,9 +1,7 @@
 # Customers Json Exercise
 
 [![Build Status](https://travis-ci.org/amrabdelwahab/intercom_customers_exercise.svg)](https://travis-ci.org/amrabdelwahab/intercom_customers_exercise)
-
 [![Coverage Status](https://coveralls.io/repos/github/amrabdelwahab/intercom_customers_exercise/badge.svg?branch=master)](https://coveralls.io/github/amrabdelwahab/intercom_customers_exercise?branch=master)
-
 
 ## Problem Description
 
