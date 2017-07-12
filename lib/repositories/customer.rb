@@ -12,6 +12,10 @@ module Repositories
       end
     end
 
+    def within_range(reference_location, range)
+      []
+    end
+
     private
 
     def raw_customers_data
