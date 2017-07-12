@@ -4,12 +4,7 @@ require './lib/repositories/customer'
 describe Repositories::Customer do
   subject { described_class.new(data_source) }
   let(:json_data) { [] }
-  let(:data_source) { double('data_source') }
-  before do
-    allow(data_source)
-      .to receive(:json_records)
-      .and_return(json_data)
-  end
+  let(:data_source) { double('data_source', json_records: json_data) }
 
   describe '#all' do
     context 'when the data_source returns empty array of records' do

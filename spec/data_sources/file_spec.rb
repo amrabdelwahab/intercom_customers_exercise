@@ -6,12 +6,7 @@ describe DataSources::File do
     []
   end
 
-  let(:reader) { double('reader') }
-  before do
-    allow(reader)
-      .to receive(:lines)
-      .and_return(lines)
-  end
+  let(:reader) { double('reader', lines: lines) }
   subject { described_class.new(reader) }
 
   describe '#json_records' do
