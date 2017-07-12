@@ -45,6 +45,13 @@ ruby app.rb
 ```
 
 ## To Run the tests
+
+### With docker
+```
+docker run -t amr-intercom-customers rspec
+```
+
+### Without docker
 ```
 bundle exec rspec
 ```
