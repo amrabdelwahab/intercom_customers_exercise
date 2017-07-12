@@ -3,4 +3,8 @@ source 'https://rubygems.org'
 gem 'rspec'
 gem 'rubocop', require: false
 gem 'rubycritic', require: false
-gem 'simplecov', require: false, group: :test
+
+group :test do
+  gem 'rake'
+  gem 'simplecov'
+end

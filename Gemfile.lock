@@ -94,6 +94,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  rake
   rspec
   rubocop
   rubycritic
