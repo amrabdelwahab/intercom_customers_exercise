@@ -13,7 +13,9 @@ module Repositories
     end
 
     def within_range(reference_location, range)
-      []
+      all.select do |customer|
+        reference_location.distance_to(customer.location) <= range
+      end
     end
 
     private
