@@ -1,5 +1,5 @@
 require 'spec_helper'
-require './lib/services/distance_calculatoris'
+require './lib/services/distance_calculator'
 
 describe Services::DistanceCalculator do
   let(:source) { Models::Location.new(-6.2576841, 53.3393) }
