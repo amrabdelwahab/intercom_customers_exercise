@@ -5,6 +5,7 @@ describe DataSources::File do
   let(:lines) do
     []
   end
+
   let(:reader) { double('reader') }
   before do
     allow(reader)
@@ -14,10 +15,10 @@ describe DataSources::File do
   subject { described_class.new(reader) }
 
   describe '#json_records' do
+    let(:results) { subject.json_records }
     context 'when the reader returns an empty array' do
       it 'should return an empty array' do
-        expect(subject.json_records).to be_a Array
-        expect(subject.json_records).to be_empty
+        expect(results).to match_array []
       end
     end
 

@@ -1,5 +1,7 @@
 require './lib/services/distance_calculator'
+
 module Models
+  # Implements the behavior of a location
   class Location
     attr_reader :longitude, :latitude
 

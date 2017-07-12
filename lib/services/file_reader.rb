@@ -1,6 +1,7 @@
 require 'json'
 
 module Services
+  # Responsible for reading a file content from a file path
   class FileReader
     def initialize(file_path)
       @file_path = file_path

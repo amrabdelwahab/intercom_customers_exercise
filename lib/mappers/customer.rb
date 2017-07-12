@@ -1,6 +1,8 @@
 require './lib/models/customer'
 require './lib/models/location'
+
 module Mappers
+  # Responsible for mapping customer raw attributes to our object structure
   class Customer
     attr_reader :source_hash
 

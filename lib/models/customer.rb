@@ -1,5 +1,7 @@
 require './lib/models/location'
+
 module Models
+  # Implements the behaviors of a customer
   class Customer
     include Comparable
     attr_reader :user_id, :name, :location

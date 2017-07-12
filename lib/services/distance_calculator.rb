@@ -1,4 +1,5 @@
 module Services
+  # Responsible for calculating distance between two locations
   class DistanceCalculator
     attr_reader :source, :destination
 

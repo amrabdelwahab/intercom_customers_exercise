@@ -1,5 +1,7 @@
 require './lib/services/file_reader'
+
 module DataSources
+  # Implements the file datasource behavior given a file reader
   class File
     def initialize(reader = Services::FileReader.new('./data/customers.json'))
       @reader = reader

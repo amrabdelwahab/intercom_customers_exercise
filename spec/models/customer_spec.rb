@@ -7,12 +7,6 @@ describe Models::Customer do
   let(:location) { Models::Location.new('-6.043701', '52.986375') }
   subject { described_class.new(user_id, name, location) }
 
-  describe '#initialize' do
-    specify { expect(subject.user_id).to eq 12 }
-    specify { expect(subject.name).to eq 'Christina McArdle' }
-    specify { expect(subject.location).to eq location }
-  end
-
   describe '#<=>' do
     context 'when two customers have the same user_id' do
       let(:customer1) { described_class.new(12, 'User 1', location) }
@@ -39,7 +33,6 @@ describe Models::Customer do
       let(:customers) { [customer2, customer1, customer3] }
 
       it 'should sort an array of customers based on user_id using #sort' do
-        expect(customers).to eq [customer2, customer1, customer3]
         expect(customers.sort).to eq [customer1, customer2, customer3]
       end
     end

@@ -21,9 +21,15 @@ describe Mappers::Customer do
         expect(subject.customer.name).to eq 'Christina McArdle'
       end
 
-      it 'should map the customer location attributes correctly' do
+      it 'should map the customer location' do
         expect(subject.customer.location).to be_a Models::Location
+      end
+
+      it 'should map the customer location longitude' do
         expect(subject.customer.location.longitude).to eq(-6.043701)
+      end
+
+      it 'should map the customer location latitude' do
         expect(subject.customer.location.latitude).to eq 52.986375
       end
     end

@@ -26,15 +26,6 @@ describe Repositories::Customer do
         }
       end
 
-      let(:customer_2_hash) do
-        {
-          'latitude' => '51.8856167',
-          'user_id' => 2,
-          'name' => 'Ian McArdle',
-          'longitude' => '-10.4240951'
-        }
-      end
-
       let(:customer_3_hash) do
         {
           'latitude' => '52.3191841',
@@ -43,13 +34,24 @@ describe Repositories::Customer do
           'longitude' => '-8.5072391'
         }
       end
+
       let(:json_data) do
-        [customer_1_hash, customer_2_hash, customer_3_hash]
+        [customer_1_hash, customer_3_hash]
       end
 
-      specify { expect(subject.all).to be_an Array }
-      specify { expect(subject.all.count).to eq 3 }
-      specify { expect(subject.all).to all be_a Models::Customer }
+      let(:results) { subject.all }
+
+      it 'should return an array' do
+        expect(results).to be_an Array
+      end
+
+      it 'should return all the 3 records' do
+        expect(results.count).to eq 2
+      end
+
+      it 'should have all the records as customer objects' do
+        expect(results).to all be_a Models::Customer
+      end
     end
 
     describe '#within_range' do
@@ -71,15 +73,6 @@ describe Repositories::Customer do
           }
         end
 
-        let(:customer_2_outside_range) do
-          {
-            'latitude' => '51.8856167',
-            'user_id' => 2,
-            'name' => 'Ian McArdle',
-            'longitude' => '-10.4240951'
-          }
-        end
-
         let(:customer_within_range) do
           {
             'latitude' => '53.2451022',
@@ -88,22 +81,27 @@ describe Repositories::Customer do
             'longitude' => '-6.238335'
           }
         end
+
         let(:json_data) do
-          [customer_1_outside_range, customer_2_outside_range, customer_within_range]
+          [customer_1_outside_range, customer_within_range]
         end
 
-        it 'should include only the customer within_range' do
-          expect(subject.within_range(reference_location, 100))
-            .to be_an Array
+        let(:results) { subject.within_range(reference_location, 100) }
 
-          expect(subject.within_range(reference_location, 100).count)
-            .to eq 1
+        it 'should return an array' do
+          expect(results).to be_an Array
+        end
 
-          expect(subject.within_range(reference_location, 100).first.user_id)
-            .to eq 4
+        it 'should return only the customer in range and exclude the rest' do
+          expect(results.count).to eq 1
+        end
 
-          expect(subject.within_range(reference_location, 100).first.name)
-            .to eq 'Ian Kehoe'
+        it 'should return the customer user_id correctly' do
+          expect(results.first.user_id).to eq 4
+        end
+
+        it 'should return the customer name correctly' do
+          expect(results.first.name).to eq 'Ian Kehoe'
         end
       end
     end
