@@ -51,5 +51,15 @@ describe Repositories::Customer do
       specify { expect(subject.all.count).to eq 3 }
       specify { expect(subject.all).to all be_a Models::Customer }
     end
+
+    describe '#within_range' do
+      let(:reference_location) { Models::Location.new(53.3393, -6.2576841)}
+      context 'when the data_source returns empty array of records' do
+        specify do
+          expect(subject.within_range(reference_location, 100))
+            .to match_array []
+        end
+      end
+    end
   end
 end
