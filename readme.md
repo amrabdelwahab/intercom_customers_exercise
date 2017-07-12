@@ -17,14 +17,29 @@ We have some customer records in a text file (customers.json) -- one customer pe
 * The GPS coordinates for our Dublin office are 53.3393,-6.2576841.
 * You can find the Customer list [here](https://gist.github.com/brianw/19896c50afa89ad4dec3).
 
-## To setup the project locally
+## To Run locally with docker
 
-Clone the repository and run
+
+### Build the image
+
+```
+docker build . -t amr-intercom-customers
+```
+
+### Run the image you built
+```
+docker run amr-intercom-customers
+```
+
+## To run locally without docker
+
+### Install the dependencies
+
 ```
 bundle install
 ```
+### Run app.rb
 
-## To run the project and get the results
 ```
 ruby app.rb
 ```
