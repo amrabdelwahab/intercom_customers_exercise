@@ -80,7 +80,7 @@ describe Repositories::Customer do
           }
         end
 
-        let(:customer_attrs_within_range) do
+        let(:customer_within_range) do
           {
             'latitude' => '52.3191841',
             'user_id' => 4,
