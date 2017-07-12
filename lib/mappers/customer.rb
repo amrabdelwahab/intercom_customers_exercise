@@ -27,11 +27,11 @@ module Mappers
     end
 
     def longitude
-      source_hash['longitude']
+      source_hash['longitude'].to_f
     end
 
     def latitude
-      source_hash['latitude']
+      source_hash['latitude'].to_f
     end
   end
 end
