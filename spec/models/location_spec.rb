@@ -22,4 +22,12 @@ describe Models::Location do
       specify { expect(subject.distance_to(subject)).to eq 10.635 }
     end
   end
+
+  describe '#longitude_in_radians' do
+    specify { expect(subject.longitude_in_radians).to eq 0.924786702444 }
+  end
+
+  describe '#latitude_in_radians' do
+    specify { expect(subject.latitude_in_radians).to eq(-0.10548248146) }
+  end
 end
