@@ -82,10 +82,10 @@ describe Repositories::Customer do
 
         let(:customer_within_range) do
           {
-            'latitude' => '52.3191841',
+            'latitude' => '53.2451022',
             'user_id' => 4,
             'name' => 'Ian Kehoe',
-            'longitude' => '-8.5072391'
+            'longitude' => '-6.238335'
           }
         end
         let(:json_data) do

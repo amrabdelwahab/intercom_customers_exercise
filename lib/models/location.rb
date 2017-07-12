@@ -1,3 +1,4 @@
+require './lib/services/distance_calculator'
 module Models
   class Location
     attr_reader :longitude, :latitude
@@ -8,7 +9,7 @@ module Models
     end
 
     def distance_to(destination)
-      0
+      Services::DistanceCalculator.new(self, destination).distance_in_kms
     end
   end
 end
