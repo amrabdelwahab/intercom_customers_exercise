@@ -12,11 +12,11 @@ describe Repositories::Customer do
   end
 
   describe '#all' do
-    context 'when the file has no valid records' do
+    context 'when the data_source returns empty array of records' do
       specify { expect(subject.all).to match_array [] }
     end
 
-    context 'when the file has valid records' do
+    context 'when the data_source returns some records' do
       let(:customer_1_hash) do
         {
           'latitude' => '51.92893',

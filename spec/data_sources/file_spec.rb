@@ -21,7 +21,7 @@ describe DataSources::File do
       end
     end
 
-    context 'when the file has valid json data' do
+    context 'when the reader returns valid json data' do
       let(:lines) do
         [
           '{"attr1": "test", "id": 1}',
@@ -40,7 +40,7 @@ describe DataSources::File do
       end
     end
 
-    context 'when the file has invalid json data' do
+    context 'when the reader returns invalid json data' do
       let(:lines) do
         [
           '{"attr "test", "id": 1}',
