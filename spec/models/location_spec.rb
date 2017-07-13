@@ -14,7 +14,9 @@ describe Models::Location do
     context 'when calculating distance to another location' do
       let(:destination) { described_class.new(-6.2576841, 53.3393) }
 
-      specify { expect(subject.distance_to(destination)).to eq 41.802589756143966 }
+      specify do
+        expect(subject.distance_to(destination)).to eq 41.802589756143966
+      end
     end
   end
 

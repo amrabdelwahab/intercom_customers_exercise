@@ -18,20 +18,24 @@ module Services
 
     def central_angle
       Math.acos(
-        product_of_sin_latitudes + (product_of_cos_latitudes * Math.cos(delta_longitudes))
+        product_of_sin_latitudes +
+          (product_of_cos_latitudes * Math.cos(delta_longitudes))
       )
     end
 
     def product_of_sin_latitudes
-      Math.sin(source.latitude_in_radians) * Math.sin(destination.latitude_in_radians)
+      Math.sin(source.latitude_in_radians) *
+        Math.sin(destination.latitude_in_radians)
     end
 
     def product_of_cos_latitudes
-      Math.cos(source.latitude_in_radians) * Math.cos(destination.latitude_in_radians)
+      Math.cos(source.latitude_in_radians) *
+        Math.cos(destination.latitude_in_radians)
     end
 
     def delta_longitudes
-      (source.longitude_in_radians - destination.longitude_in_radians).abs
+      (source.longitude_in_radians -
+         destination.longitude_in_radians).abs
     end
   end
 end
